@@ -62,7 +62,7 @@ d3.select("input")
         yearData = birthData.filter(d => d.year === year);
         xScale.domain([0, d3.max(yearData, d => d.births)]);
         histogram.domain(xScale.domain())
-                .thresholds(xScale.ticks());
+                 .thresholds(xScale.ticks());
         bins = histogram(yearData);
         yScale.domain([0, d3.max(bins, d => d.length)]);
 
@@ -77,7 +77,7 @@ d3.select("input")
         var g = bars 
                   .enter()
                   .append("g")
-                    classed("bar", true);
+                    .classed("bar", true);
 
         g.append("rect");
         g.append("text");
@@ -98,6 +98,6 @@ d3.select("input")
             .text(d => d.x0 + " - " + d.x1 + " (bar height: " + d.length + ")")
             .attr("transform", "rotate(-90)")
             .attr("y", d => (xScale(d.x1) + xScale(d.x0)) / 2)
-            .attr("x", -height + 10)
+            .attr("x", - height + 10)
             .attr("alignment-baseline", "middle");
     });
